@@ -1,7 +1,10 @@
+-- resets database upon "source db/schema.sql"
 DROP DATABASE IF EXISTS employeeDB;
 CREATE database employeeDB;
 
+-- sets employeeDB as active database
 USE employeeDB;
+
 
 CREATE TABLE department (
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
