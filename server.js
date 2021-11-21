@@ -166,7 +166,7 @@ async function addEmployee() {
         {
             name: 'managerID',
             type: 'input',
-            message: 'What is the manager ID # for this employee?',
+            message: 'What is the employeeID # of this employees manager?',
         }
     ]);
         db.query("INSERT INTO employee SET ?", {
@@ -197,6 +197,6 @@ async function updateRole() {
     ])
     let data = [answer.roleID, answer.employeeID];
     db.query(sql, data)
-    // console.log(data)
+    console.log("Employee role changed!")
     promptUser()
 }
