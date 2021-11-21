@@ -90,7 +90,7 @@ function viewRoles() {
 function viewEmployees() {
     console.log('Viewing Employees');
         
-    var query = 'SELECT * FROM employee';
+    var query = 'SELECT * FROM employee INNER JOIN role ON employee.role_id = role.roleID';
         
         db.query(query, function (err, res) {
             if (err) throw err;
@@ -137,7 +137,7 @@ async function addRole() {
             message: 'What department ID # is this role a part of?',
         }
     ]);
-    let newRole = db.query("INSERT INTO role SET ?", {
+        db.query("INSERT INTO role SET ?", {
         title: answer.title,
         salary: answer.salary,
         department_id: answer.departmentId
@@ -169,7 +169,7 @@ async function addEmployee() {
             message: 'What is the manager ID # for this employee?',
         }
     ]);
-    let newEmployee = db.query("INSERT INTO employee SET ?", {
+        db.query("INSERT INTO employee SET ?", {
         first_name: answer.firstName,
         last_name: answer.lastName,
         role_id: answer.roleID,
@@ -181,7 +181,7 @@ async function addEmployee() {
 // function to update an employees given role
 async function updateRole() {
 
-    let sql = `UPDATE employee SET role_id = ? WHERE id = ?`;
+    let sql = `UPDATE employee SET role_id = ? WHERE employeeID = ?`;
 
     let answer = await inquirer.prompt([
         {
@@ -195,8 +195,8 @@ async function updateRole() {
             message: 'Which role ID would you like to give them? (Please select a valid role ID #)'
         },
     ])
-    
     let data = [answer.roleID, answer.employeeID];
     db.query(sql, data)
+    // console.log(data)
     promptUser()
 }

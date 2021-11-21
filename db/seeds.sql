@@ -6,10 +6,10 @@ VALUES
 
 INSERT INTO role (title, salary, department_id) 
 VALUES 
-("Manager", 30, 1),
-("Cashier", 10, 2),
-("Stocker", 10, 3),
-("Manual Labor", 10, 3);
+("Manager", 60000, 1),
+("Cashier", 30000, 2),
+("Stocker", 30000, 3),
+("Manual Labor", 40000, 3);
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES 
