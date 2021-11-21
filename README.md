@@ -1,7 +1,7 @@
 # Employee Tracker -
 
 ## Purpose:
-A command line database where you can view/create employees for your business! An exercise in constructing MySQL databases!
+A command line database where you can view/create employees for your business! An exercise in constructing MySQL database tables using inquiry prompts!
 
 ## Built With:
 * JavaScript
